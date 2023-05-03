@@ -8,6 +8,7 @@ const initialState = {
     message: "",
   },
   warming: [],
+  cache: null
 }
 
 const dataSlice = createSlice({
@@ -32,6 +33,9 @@ const dataSlice = createSlice({
     cleanError: (state) => {
       state.error.status = false
       state.error.message = ""
+    },
+    cleanCache: (state) => {
+      state.cache = null // Resetta la cache
     },
   }
 })

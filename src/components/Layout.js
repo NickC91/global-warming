@@ -10,11 +10,11 @@ const Layout = ({ children }) => {
 
   function handleResize() {
     if (window.innerWidth <= 640) {
-      setShowNav(false)
       setIsMobile(true)
+      setShowNav(false)
     } else {
-      setShowNav(true)
       setIsMobile(false)
+      setShowNav(true)
     }
   }
 

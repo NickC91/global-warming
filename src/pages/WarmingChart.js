@@ -18,7 +18,7 @@ ChartJS.register(
 const WarmingChart = () => {
   const { type } = useParams()
   const dispatch = useDispatch()
-  const { warming } = useSelector((state) => state.warming)
+  const { warming, error, loading } = useSelector((state) => state.warming)
 
   let dataWarming = []
 
@@ -34,9 +34,9 @@ const WarmingChart = () => {
     dataWarming = warming.arcticData
   }
 
-  const fetchWarming = () => {
+  const fetchWarming = async () => {
     let apiUrl = `${type}-api`
-    dispatch(fetchData(apiUrl))
+    await dispatch(fetchData(apiUrl))
   }
 
   useEffect(() => {
@@ -110,9 +110,17 @@ const WarmingChart = () => {
   return (
     <>
       <h1 className="text-gray-700 text-4xl mb-8 font-bold">{type}</h1>
-      <Line className="rounded bg-white h-40 shadow-sm p-2" height={350} width={750} data={warmingData} />
+      {loading || error.status ? (
+        <div className="flex items-center justify-center h-40">
+          <div className="animate-spin rounded-full h-24 w-24 border-t-2 border-b-2 border-red-500"></div>
+        </div>
+      ) : (
+        <Line
+          className="rounded bg-white h-40 shadow-sm p-2" height={350} width={750} data={warmingData}
+        />
+      )}
     </>
-  )
+  );
 }
 
 export default WarmingChart

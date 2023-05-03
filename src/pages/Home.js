@@ -1,8 +1,15 @@
 import React from 'react'
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Global Warming</title>
+        <meta name="description" content="Learn about the impacts of global warming on the environment and society, and what we can do to reduce our carbon footprint." />
+        <meta name="keywords" content="global warming, environment, society, carbon footprint, renewable energy, sustainability" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      </Helmet>
       <h1 className="text-gray-700 text-4xl mb-16 font-bold">Global Warming</h1>
       <h2 className="text-gray-700 text-2xl mb-4 font-bold">Introduction</h2>
       <p className="text-gray-600 text-lg mb-8">Global Warming is a pressing issue that affects our planet and its inhabitants. The rise in temperature due to human activity has led to a cascade of environmental consequences, including melting glaciers, rising sea levels, and more frequent natural disasters.</p>
