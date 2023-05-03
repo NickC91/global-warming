@@ -35,7 +35,7 @@ const dataSlice = createSlice({
       state.error.message = ""
     },
     cleanCache: (state) => {
-      state.cache = null // Resetta la cache
+      state.cache = null
     },
   }
 })
